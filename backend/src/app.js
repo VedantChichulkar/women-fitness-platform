@@ -6,12 +6,15 @@ const authRoutes = require("./routes/authRoutes");
 const app = express();
 const userRoutes = require("./routes/userRoutes");
 const attendanceRoutes = require("./routes/attendanceRoutes");
+const membershipRoutes = require("./routes/membershipRoutes");
 // Middlewares
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/attendance", attendanceRoutes);
+app.use("/api/v1/membership-plans", membershipRoutes);
+
 // Health Check Route
 app.get("/", (req, res) => {
     res.status(200).json({
